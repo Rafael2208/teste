@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="issue"
+            type="com.msf.githubissues.model.Issue" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_label_title"
+                style="@style/style_txt_subtitles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/title" />
+
+            <TextView
+                android:id="@+id/txt_title"
+                style="@style/style_infos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{issue.title}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_label_title"
+                tools:text="KT-31127: register only generated Java sources to AGP" />
+
+            <View
+                android:id="@+id/view_separator_1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+            <TextView
+                android:id="@+id/txt_label_created_by"
+                style="@style/style_txt_subtitles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/created_by"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view_separator_1"
+                tools:text="@string/created_by" />
+
+            <ImageView
+                android:id="@+id/img_avatar"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_user"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/txt_user"
+                style="@style/style_infos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:text="@{issue.user.login}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_label_created_by"
+                tools:text="gavra0" />
+
+            <TextView
+                android:id="@+id/txt_label_data"
+                style="@style/style_txt_subtitles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/data"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txt_label_created_by"
+                app:layout_constraintTop_toTopOf="@+id/view_separator_1"
+                tools:text="@string/data" />
+
+            <TextView
+                android:id="@+id/txt_data"
+                style="@style/style_infos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{issue.dateFormated}"
+                app:layout_constraintStart_toStartOf="@+id/txt_label_data"
+                app:layout_constraintTop_toTopOf="@+id/txt_user"
+                tools:text="13/06/2019" />
+
+            <TextView
+                android:id="@+id/txt_link_ext"
+                style="@style/style_txt_subtitles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/txt_label_data"
+                app:layout_constraintTop_toBottomOf="@+id/txt_data"
+                tools:text="@string/view" />
+
+            <View
+                android:id="@+id/view_separator_2"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_avatar" />
+
+            <TextView
+                android:id="@+id/txt_label_description"
+                style="@style/style_txt_subtitles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_separator_2"
+                tools:text="@string/description" />
+
+
+            <TextView
+                android:id="@+id/txt_description"
+                style="@style/style_infos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_8dp"
+                android:text="@{issue.body}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_label_description"
+                tools:text="When adding generated Java sources to AGP using Variant API,\r\nadd only Java sources. This was already done in\r\na6ae4494167c9d4cca23995457c59fb2daedad39 for Java projects, and this\r\ncommit fixes the same issue for Android projects.\r\n\r\nTest: Kapt3Android33IT.testKotlinProcessorUsingFiler" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

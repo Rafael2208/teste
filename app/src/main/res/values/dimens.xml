@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="elevation_card">8dp</dimen>
+    <dimen name="radius_card">6dp</dimen>
+    <dimen name="dimen_8dp">8dp</dimen>
+</resources>

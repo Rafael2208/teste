@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/navigation"
+    app:startDestination="@id/listIssuesFragment">
+
+    <fragment
+        android:id="@+id/listIssuesFragment"
+        android:name="com.msf.githubissues.view.ListIssuesFragment"
+        android:label="ListIssuesFragment" >
+        <action
+            android:id="@+id/action_listIssuesFragment_to_issueFragment"
+            app:destination="@id/issueFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/issueFragment"
+        android:name="com.msf.githubissues.view.IssueFragment"
+        android:label="IssueFragment" >
+        <action
+            android:id="@+id/action_issueFragment_to_listIssuesFragment"
+            app:destination="@id/listIssuesFragment"
+            app:popUpTo="@+id/listIssuesFragment" />
+        <argument android:name="issue_clicked" app:argType="com.msf.githubissues.model.Issue"/>
+    </fragment>
+</navigation>

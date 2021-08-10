@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GitHubIssues</string>
+
+    <string name="issue_state">Issue State</string>
+    <string name="info">Info</string>
+    <string name="title">Título</string>
+    <string name="created_by">Criado por</string>
+    <string name="data">Data</string>
+    <string name="description">Descrição</string>
+    <string name="no_issues_founded">Nenhuma issue encontrada</string>
+    <string name="somenthing_get_wrong">Acontenceu um erro inesperado, tente novamente</string>
+    <string name="view">Visualizar</string>
+</resources>
